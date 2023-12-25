@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Objects</title>
+</head>
+<body>
+<h3>Rock Paper Scissors</h3>
+<button onclick="playGame('Rock')">Rock</button>
+<button onclick="playGame('Paper')">Paper</button>
+<button onclick="playGame('Scissors')">Scissors</button>
+<button onclick="
+	score.wins = 0;
+	score.loses= 0;
+	score.ties = 0;
+">Reset Score</button>
+
+
+<script>
+
+	// const product = {
+	// 	name: 'Apple',
+	// 	price: 10
+	// };
+	// console.log(product.name);    //dot notition
+	// product.name = 'orange';
+	// console.log(product.name);
+	//
+	// product.quantity = 3;
+	// console.log(product);
+	//
+	// delete product.quantity;
+	// console.log(product);
+
+	const product2 = {
+		name: 'shirt',
+		price: 30,
+		rating:{				//nested object
+			stars: 4.5,
+			count: 87
+		},
+		fun: function function3(){
+			console.log('function inside object');
+		}
+	};
+
+	console.log(product2['name']);   //bracket notation
+	console.log(product2.rating.stars);
+	product2.fun();
+	console.log(JSON.stringify(product2));    //JSON does not support methodes(functions inside objects)
+
+	const jsonString = JSON.stringify(product2);
+	console.log(JSON.parse(jsonString));  //JSON to JavaScript
+
+	const v1 = {
+		name: 'hahaha'
+	};
+
+	localStorage.setItem('v1', JSON.stringify(v1));
+	//to store the values into a local storage and JSON.stringify is for convert the value to a string because the local storage it takes only a string value
+	localStorage.getItem('v1');  //to access to the values that we stored
+	localStorage.getItem('v1');
+	JSON.parse(localStorage.getItem('v1')); //JSON.parse is for converting the string to an object
+	console.log(JSON.parse(localStorage.getItem('v1')));
+	localStorage.removeItem('v1'); //to remove values from the local storage
+	console.log('hello'.length);
+	console.log('hello'.toUpperCase());  //auto boxing
+
+
+
+
+
+
+
+	const score = {
+		wins: 0,
+		loses: 0,
+		ties: 0
+	};
+	function playGame(playerMove) {
+		const computerMove = pickComputerMove();
+
+		let result = '';
+
+		if (playerMove === 'Scissors') {
+			if (computerMove === 'Rock') {
+				result = 'You lose.';
+
+			} else if (computerMove === 'Paper') {
+				result = 'You win.';
+
+			} else if (computerMove === 'Scissors') {
+				result = 'Tie.';
+
+			}
+		}else if(playerMove === 'Rock'){
+			if (computerMove === 'Rock'){
+				result = 'Tie.';
+
+			}else if (computerMove === 'Paper'){
+				result = 'You lose.';
+
+			}else if (computerMove === 'Scissors'){
+				result = 'You win.'
+
+			}
+		}else if (playerMove === 'Paper'){
+			if (computerMove === 'Rock'){
+				result = 'You win.';
+
+			}else if (computerMove === 'Paper'){
+				result = 'Tie.';
+
+			}else if (computerMove === 'Scissors'){
+				result = 'You lose.';
+
+			}
+		}
+
+		if (result === 'You win.'){
+			score.wins += 1;
+		}else if (result === 'You lose.'){
+			score.loses += 1;
+		}else if (result === 'Tie.'){
+			score.ties += 1;
+		}
+		alert(`You picked ${playerMove}. Computer picked ${computerMove}. ${result}\nWins: ${score.wins}, Loses: ${score.loses}, Ties: ${score.ties}`);
+
+	}
+
+
+	function pickComputerMove(){
+		let computerMove = '';
+
+		const randomNumber = Math.random();
+
+		if (randomNumber>=0 && randomNumber <= 1/3){
+			computerMove= 'Rock';
+		}else if (randomNumber > 1/3 && randomNumber <= 2/3){
+			computerMove = 'Paper';
+		}else if(randomNumber > 2/3 && randomNumber < 1){
+			computerMove = 'Scissors';
+
+		}
+		return computerMove;
+	}
+
+
+
+</script>
+</body>
+</html>
