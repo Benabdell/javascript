@@ -66,6 +66,23 @@
 	console.log('hello'.length);
 	console.log('hello'.toUpperCase());  //auto boxing
 
+	// const name = product2.name;
+	const {name, price} = product2;   //destructuring (taking properties out of an object)
+	console.log(name);
+	console.log(price);
+
+	const object4 = {
+		// name: name
+		name,	//shorthand property because the property and the variable name are the same
+		// method: function function1(){
+		// 	console.log('method');
+		// }
+		method(){
+			console.log('method');  //shorthand method syntax
+		}
+	};
+	console.log(object4.name);
+	object4.method();
 
 
 
