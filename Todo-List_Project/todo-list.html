@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Todo List</title>
+	<link rel="stylesheet" href="TL-css.css">
+</head>
+<body>
+<h3>Todo List</h3>
+<div class="div-grid">
+<input type="text" placeholder="Todo name" class="js-name input-css" onkeydown="addString(event);">
+<input type="date" class="due-date input-css" onkeydown="addString(event);">
+
+<button class="add-button" onclick="addTodo();">Add</button>
+<div class="picked div-grid"></div>
+</div>
+
+<script src="TL-js.js"></script>
+</body>
+</html>

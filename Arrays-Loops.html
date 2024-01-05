@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Array and loops</title>
+</head>
+<body>
+
+</body>
+<script>
+	const myArray = [10, 20 ,30];
+	console.log(myArray[2]);
+	myArray[2] = 40;
+	console.log(myArray[2]);
+	console.log(myArray);
+	const newArray = [1, 'hello', true, {name: 'socks'}, [1, 2]];
+	console.log(newArray.length);
+	newArray.push(100);  //adds a value to the end of an array
+	console.log(newArray);
+	newArray.splice(0, 1);   //removes a value from an array
+	console.log(newArray);
+	console.log('-------------------');
+	//-------------------------------------------------------------
+
+	let i = 1;
+	while (i <= 5){
+		console.log(i);
+		i++;        //----> i += 1;
+
+	}
+	console.log('------------------');
+	//-------------------------------------
+	for (let i = 1; i <= 5; i++){
+		console.log(i);
+	}
+	console.log('-------------------');
+	//-------------------------------------------------------------
+
+	const todo = [
+			'make dinner',
+			'wash dishes',
+			'watch youtube'
+	];
+	for (let i = 0; i <= todo.length - 1; i++){
+		console.log(todo[i]);
+	}
+	console.log('-------------------');
+	//-------------------------------------------------------------
+	//accumulator pattern
+	const nums = [1,2,3];
+	let total = 0;
+
+	for (let i = 0; i < nums.length; i++){
+		const num = nums[i];
+		total += num;
+	}
+	console.log(total);
+	//doubles nums
+	const numsDoubled = [];
+
+	for (let i = 0; i < nums.length; i++){
+		const num = nums[i];
+		numsDoubled.push(num * 2);
+	}
+console.log(numsDoubled);
+
+</script>
+</html>
